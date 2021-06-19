@@ -3,7 +3,7 @@
 sudo apt update;
 sudo apt upgrade -y;
 apt-get install apt-transport-https wget gnupg;
-apt-add-repository ppa:ansible/ansible
+apt-add-repository ppa:ansible/ansible | echo -ne '\n';
 apt-get update;
 apt-get install ansible -y;
 ansible --version;
