@@ -7,4 +7,5 @@ apt-add-repository ppa:ansible/ansible | echo -ne '\n';
 apt-get update;
 apt-get install ansible -y;
 ansible --version;
-(sleep 3; echo) | useradd -m -s /bin/bash ansible;
+(sleep 3; echo) | useradd -m -p ansible -s /bin/bash ansible;
+su ansible | (sleep 1; echo) | echo ansible;
