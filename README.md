@@ -4,6 +4,6 @@ bash script for terraform, azure, ansible tower automation installation and conf
 Dont forget to give script sudo permissions to run :
 
 # Give script permissions
-1. sudo chmod +x ansible-autosetup
+1. sudo chmod +x ansible-autosetup.sh
 # Run  the bash script
 2. sudo sh ansible-autosetup.sh
