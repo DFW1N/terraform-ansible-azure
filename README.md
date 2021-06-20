@@ -103,10 +103,19 @@ Contributor:                                                [<img src="https://g
         }
 
 ### [↑](#contents) 4.0 Deploy Terraform infrastructure
-* Completing the following steps 1 to 10 allows for Ansible to have SSH authentication and create a SSH service connection in Azure DevOps
-* Connect to Virtual Machine Public IP Address 
+
+* To deploy Terraform you must change some current values in the files but the main commands to Initialize, Plan, Build & Deploy it to Azure are the following :
+
+      terraform init
+      terraform fmt
+      terraform plan
+      terraform apply -auto-approve
+ 
+* Once the infrastructure has been deployed locate the public ip address and connect to the vm through ssh :
         
          [ssh -i ~/.ssh/id_rsa adminuser@public.ip.address]
+
+* To prepare Ansible please start following these commands so Ansible can communicate to Azure. Alternatively you can run the ansible-ssh-automation.sh script in the repository.
 
          mkdir ~/.azure
          
