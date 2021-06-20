@@ -100,8 +100,8 @@ tenant=<azure serviceprincipal-tenant>  |
     2. Add SSH Service Connection > Input Values : Public IP, Username, Password, id_rsa you cat eariler > OK.
 
 # Run my BashScript [Optional]
-    # Git clone my bash script from https://github.com/DFW1N/ansible-tower
-    1. git clone https://github.com/DFW1N/ansible-tower.git && cd ansible-tower
+    # Git clone my bash script from https://github.com/DFW1N/terraform-ansible-azure
+    1. git clone https://github.com/DFW1N/terraform-ansible-azure.git && cd ansible-tower
     3. sudo chmod +x ansible-autosetup.sh
     4. sudo sh ansible-autosetup.sh
 
