@@ -176,45 +176,52 @@ Contributor:                                                [<img src="https://g
 
 ### [↑](#contents) 6.1 Ansible Tower Installation on Ubuntu Linux
 * Ansible Tower Installation on Ubuntu Linux
-    1. Access the Ansible website and Download the Ansible Tower product [https://www.ansible.com/products/tower]
+1. Access the Ansible website and Download the Ansible Tower product [https://www.ansible.com/products/tower]
+
 * Assumation that the ansible-tower-setup-latest.tar.gz package is located inside the /tmp directory please follow commands in order:
-    2. cd /tmp
-    3. tar -zxvf ansible-tower-setup-latest.tar.gz [Ansible Tower Download File]
-    4. cd /tmp/ansible-tower-setup{version}
-    5. vi inventory
-* Cat Value of file: |
 
-[tower]
-localhost ansible_connection=local
+      cd /tmp
+      tar -zxvf ansible-tower-setup-latest.tar.gz [Ansible Tower Download File]
+      cd /tmp/ansible-tower-setup{version}
+      vi inventory
+   
+* Cat Value of file:
 
-[database]
+      [tower]
+      localhost ansible_connection=local
 
-[all:vars]
-admin_password=''
+      [database]
 
-pg_host=''
-pg_port=''
+      [all:vars]
+      admin_password=''
 
-pg_database='awx'
-pg_username='awx'
-pg_password=''
+      pg_host=''
+      pg_port=''
 
-rabbitmq_username=tower
-rabbitmq_password=''
-rabbitmq_cookie=cookiemonster
+      pg_database='awx'
+      pg_username='awx'
+      pg_password=''
+
+      rabbitmq_username=tower
+      rabbitmq_password=''
+      rabbitmq_cookie=cookiemonster
 
 * Isolated Tower nodes automatically generate an RSA key for authentication;
 * To disable this behavior, set this value to false
 * isolated_key_generation=true
  
 ### [↑](#contents) Please change the following values from the inventory file:
-    6.  admin_password=''
+
+        admin_password=''
         pg_password=''
         rabbitmq_password=''
-    # Once values have been changed start Ansible Tower installation process:
-    7. cd /tmp/ansible-tower-setup{version}
-    8. ./setup.sh
-    9. On completion of installation open browser and enter IP address of your Ansible tower.
+        
+ * Once values have been changed start Ansible Tower installation process:
+ 
+        cd /tmp/ansible-tower-setup{version}
+        ./setup.sh
+    
+ * On completion of installation open browser and enter IP address of your Ansible tower.
     
  * To log in use the 'default' username: admin and input the password you set above under the [admin_password='input value']
 
@@ -222,24 +229,40 @@ rabbitmq_cookie=cookiemonster
     1. https://docs.microsoft.com/en-us/samples/azure-samples/ansible-playbooks/ansible-playbooks-for-azure/
 
 ### [↑](#contents) 8.0 Push Configurations to Remote Virtual Machines from Main Ansible Node
-    1. Follow the SSH requirements above and do the following : 
-    2. ssh-copy-id {admin_user}@{Remote_VM_IP} //Example: ssh-copy-id root@192.70.109.15
-    3. Input host password hit enter to add the public key you can now authenticate without being requested for a password.
-    4. Define your remote hosts through the following file : 
-    5. vim /etc/ansible/hosts > [webservers]
-                                {remote host IP address}
-                                {//Example 192.70.109.15}
-    6. creating a file that instructs all servers to connect as root user : 
-    7. sudo mkdir /etc/ansible/group_vars && sudo nano /etc/ansible/group_vars/servers
-    8. Input the following : 
-                        ----------
-                        ansible_user: root
 
-    9. Test remote host by pinging from ansible with the following command : 
-    10. ansible -m ping all
-    11. or ping remote hosts defined under your configuration such as [databases]
-    12. ansible -m ping databases
-    13. Check remote system versions : ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' databases
+* Follow the SSH requirements above and do the following : 
+
+      ssh-copy-id {admin_user}@{Remote_VM_IP} //Example: ssh-copy-id root@192.70.109.15
+    
+* Input host password hit enter to add the public key you can now authenticate without being requested for a password.
+* Define your remote hosts through the following file : 
+
+      vim /etc/ansible/hosts > [webservers]
+                               {remote host IP address}
+                               {//Example 192.70.109.15}
+                                
+* creating a file that instructs all servers to connect as root user : 
+   
+      sudo mkdir /etc/ansible/group_vars && sudo nano /etc/ansible/group_vars/servers
+      
+* Input the following : 
+
+               ----------------------------------------
+                        ansible_user: root
+               ----------------------------------------
+
+
+* Test remote host by pinging from ansible with the following command : 
+
+    ansible -m ping all
+    
+* Ping remote hosts defined under your configuration such as [databases] :
+
+      ansible -m ping databases
+    
+* Check remote system versions :
+
+      ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' databases
 
 ### Notes 
 * Ansible Tower only support Ubuntu Linux until version 16.04
