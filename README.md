@@ -2,6 +2,12 @@
 # Date : 20/06/2021
 # Coding Language : Hashicorp Language [HCL] & Shell [SH]
 
+## [↑](#contents) Credits
+Contributor:                                                [<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/DFW1N%20Logo.png" align="right" width="120">](https://github.com/DFW1N/DFW1N-OSINT)
+
+- [Sacha Roussakis-Notter](https://github.com/DFW1N)
+- [Crimol](https://www.crimol.com)
+
 ## Notes 
     1. Ansible Tower only support Ubuntu Linux until version 16.04
     2. If you deploy my ansible-autosetup.sh bash script it will automatically give ansible-ssh-automation.sh the correct permissions to start the SSH process.
