@@ -7,6 +7,8 @@ Contributor:                                                [<img src="https://g
 
 - [Sacha Roussakis-Notter](https://github.com/DFW1N)
 
+ [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Sacha)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
+
 ## [↑](#contents) Providers
 
 - [Terraform](https://www.terraform.io/)
@@ -14,7 +16,6 @@ Contributor:                                                [<img src="https://g
 - [Ansible](https://www.ansible.com/)
 - [RedHat](https://www.redhat.com/en)
 
- [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Sacha)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
 
 ## 📖 Table of Contents
 - [Introduction](#-introduction)
