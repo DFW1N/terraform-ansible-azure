@@ -6,9 +6,8 @@
 Contributor:                                                [<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/DFW1N%20Logo.png" align="right" width="120">](https://github.com/DFW1N/DFW1N-OSINT)
 
 - [Sacha Roussakis-Notter](https://github.com/DFW1N)
-- [Crimol](https://www.crimol.com)
 
- [![Follow Sacha Roussakis | Crimol on Twitter](https://img.shields.io/twitter/follow/Crimol.svg?style=social&label=Follow%20%40Cimol)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Crimol on Twitter")
+ [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Cimol)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
 
 ## 📖 Table of Contents
 - [Introduction](#-introduction)
@@ -224,10 +223,10 @@ rabbitmq_cookie=cookiemonster
     13. Check remote system versions : ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' databases
    
 ## [↑](#support) Support
-Please Support me if this has helped you with Intelligence Gathering by following me on Twitter or connecting with me on LinkedIn feel free to visit my LinkedIin at [Linkedin](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/). I hope this has helped please do not use this script for any illegal purposes, this script was solely written for educational purposes or to help DevOps produce virtual machines on Azure at a rapid rate
+Please Support me if this has helped you with rapid infratructure deployment by following me on Twitter or connecting with me on LinkedIn feel free to visit my LinkedIin at [Linkedin](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/). I hope this has helped please do not use this script for any illegal purposes, this script was solely written for educational purposes or to help DevOps produce virtual machines on Azure at a rapid rate
 
 
-[<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/logo-twitter-circle-png-transparent-image-1.png" align="left" width="30">](https://twitter.com/sacha_roussakis/)  [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Crimol.svg?style=social&label=Follow%20%40Cimol)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
+[<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/logo-twitter-circle-png-transparent-image-1.png" align="left" width="30">](https://twitter.com/sacha_roussakis/)  [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Cimol)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
 
 [<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/linkedin_circle-512.png" align="left" width="30">](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/) [@Sacha Roussakis-Notter](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/)
 
@@ -239,4 +238,4 @@ Please Support me if this has helped you with Intelligence Gathering by followin
 ## [↑](#lisence) Lisence: 
 
 <a target="_blank" href="LICENSE" title="License: GNU General Public v3.0"><img src="https://img.shields.io/badge/License-GNU-red.svg"></a>
-<a target="_blank" href="DEVELOPER" title="License: Script Developer"><img src="https://img.shields.io/badge/Developer-Crimol-brightgreen.svg"></a>
+<a target="_blank" href="DEVELOPER" title="License: Script Developer"><img src="https://img.shields.io/badge/Developer-Sacha-brightgreen.svg"></a>
