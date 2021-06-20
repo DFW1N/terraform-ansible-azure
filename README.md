@@ -12,7 +12,7 @@ Contributor:                                                [<img src="https://g
 ## 📖 Table of Contents
 - [Introduction](#-introduction)
 - [File Structure](#-file-structure)
-- [main.tf](#-main-tf)
+- [main.tf](#-main-terraform)
 - [Terraform Deployment](#-terraform-deployment-template-setup-for-ansible)
 - [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
 - [Connecting to Terraform Cloud Remote Backend](#-connecting-to-terraform-cloud-remote-backend)
@@ -53,7 +53,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 * README.md [File to help guide people through the installation process and explains the current repository]
 * credentials [A file that has the values for your Azure Service Principle for Authentication]
 
-### [↑](#contents) main.tf
+### [↑](#contents) Main Terraform
 * Linux Virtual Machine Ansible Main Node [Ubuntu 16.04]
 * Virtual Network Interfaces
 * Azure Network Security Group Association
