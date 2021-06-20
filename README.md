@@ -15,6 +15,9 @@ Contributor:                                                [<img src="https://g
 - [main.tf](#-main-tf)
 - [Terraform Deployment](#-terraform-deployment-template-setup-for-ansible)
 - [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
+- [1.1 Connecting Terraform to there remote servers at app.terraform.io](#-connecting-terraform-to-there-remote-servers)
+- [1.2 Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
+- [What is Terraform](#-what-is-terraform)
 
 ### [↑](#contents) Introduction
 
@@ -52,7 +55,7 @@ Contributor:                                                [<img src="https://g
 * Please Review for Hashicorp Guide for Azure Service Principal Authentication
     https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
-### [↑](#contents) 1.1 Connecting Terraform to there remote servers at app.terraform.io
+### [↑](#contents) Connecting Terraform to there remote servers at app.terraform.io
 * Register an account at : https://app.terraform.io/ [Recommend enabling MFA] > Create Organization > [+ New workspace]
 * Ensure, Azure CLI, Powershell & Terraform are installed in Visual Studio Code open Terminal type : 
 
@@ -71,7 +74,7 @@ Contributor:                                                [<img src="https://g
                     }
                     } 
 
-### [↑](#contents) 1.2 Export Service Provider Values to your System Environment Variables/Configuring the Service Principal in Terraform
+### [↑](#contents) Configuring the Service Principal in Terraform
 * Setting these values into your environment variable allows you to remove them from your code as these are SECRET and should not be shared.
 * Once these variables are set restart your terminal and Visual Studio Code to allow it to take effect.
 
@@ -80,7 +83,7 @@ Contributor:                                                [<img src="https://g
         setx ARM_SUBSCRIPTION_ID "00000000-0000-0000-0000-000000000000"
         setx ARM_TENANT_ID "00000000-0000-0000-0000-000000000000"
 
-### [↑](#contents)  2.0 Create a Terraform Ubuntu Linux Virtual Machine for Ansible
+### [↑](#contents) What is Terraform
 * What is Terraform? https://www.terraform.io/
 * What is Azure? https://azure.microsoft.com/en-us/
 * What is Ansible? https://www.ansible.com/
