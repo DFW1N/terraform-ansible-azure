@@ -22,6 +22,8 @@ Contributor:                                                [<img src="https://g
 
 ### [↑](#contents) Introduction
 
+Terraform automation to create a virtual machine with Ubuntu 16.04 and using custom bash scripts to automate the setup for ansible to control and push configurations to remote hosts on Microsoft Azure.
+
 1. Prerequisites : 
     * Azure CLI [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli]
     * PowerShell [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell]
