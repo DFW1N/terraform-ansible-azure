@@ -261,7 +261,7 @@ Contributor:                                                [<img src="https://g
 
 * Test remote host by pinging from ansible with the following command : 
 
-    ansible -m ping all
+      ansible -m ping all
     
 * Ping remote hosts defined under your configuration such as [databases] :
 
