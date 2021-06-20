@@ -10,7 +10,7 @@ chmod 644 ~/.ssh/authorized_keys;
 echo "Please type input value of YES to continue for the authenticity of host 127.0.0.1";
 ssh-copy-id -i adminuser@127.0.0.1;
 cat ~/.ssh/id_rsa;
-echo "------------------------------------------------------------IMPORTANT------------------------------------------------------------------------";
+echo "\e[95m------------------------------------------------------------IMPORTANT------------------------------------------------------------------------";
 echo "Please view directory ~/.azure/credentials for file to input Azure Service Principal values";
 echo "Please copy the RSA above into your Azure DevOps environment to create SSH Service Connection";
 echo "------------------------------------------------------------IMPORTANT------------------------------------------------------------------------";
