@@ -101,6 +101,11 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
                     }
                     } 
 
+* Preview of using local CLI commands using Terraform Cloud : 
+
+![image](https://user-images.githubusercontent.com/45083490/122667564-c27c0600-d1f6-11eb-9734-1b54dd26f138.png)
+
+
 ### [↑](#contents) Configuring the Service Principal in Terraform
 * Setting these values into your environment variable allows you to remove them from your code as these are SECRET and should not be shared.
 * Once these variables are set restart your terminal and Visual Studio Code to allow it to take effect.
@@ -132,6 +137,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 ### [↑](#contents) Deploy Terraform infrastructure commands
 
 * Note: You can find the latest Terraform code templates at : https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+* Templates: You can view Terraform code examples at : https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 
 * To deploy Terraform you must change some current values in the files but the main commands to Initialize, Plan, Build & Deploy it to Azure are the following :
 
