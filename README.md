@@ -18,7 +18,7 @@ Contributor:                                                [<img src="https://g
 
 ### [↑](#contents) Introduction
 
-4. Prerequisites : 
+1. Prerequisites : 
     * Azure CLI [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli]
     * PowerShell [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell]
     * Terraform [https://learn.hashicorp.com/tutorials/terraform/install-cli]
@@ -54,7 +54,10 @@ Contributor:                                                [<img src="https://g
 
 ### [↑](#contents) 1.1 Connecting Terraform to there remote servers at app.terraform.io
 * Register an account at : https://app.terraform.io/ [Recommend enabling MFA] > Create Organization > [+ New workspace]
-* Ensure, Azure CLI, Powershell & Terraform are installed in Visual Studio Code open Terminal type : terraform login
+* Ensure, Azure CLI, Powershell & Terraform are installed in Visual Studio Code open Terminal type : 
+
+      terraform login
+
 * Follow terminal prompts and creare a API token to authenticate with copy and paste code to your terminal once authenticated.
 * Input backend remote code into your provider.tf file
 
@@ -131,9 +134,12 @@ Contributor:                                                [<img src="https://g
         cat ~/.ssh/id_rsa
 
 ### [↑](#contents) 5.0 Create SSH Service Connection in Azure DevOps
+
 * Create the Service Connection to allow SSH Connection and push Ansible Playbooks to the Virtual Machine
-    1. https://dev.azure.com/ > Project > Project Settings > Service Connections > Select : New Service Connection > Select : SSH
-    2. Add SSH Service Connection > Input Values : Public IP, Username, Password, id_rsa you cat eariler > OK.
+    
+1. https://dev.azure.com/ > Project > Project Settings > Service Connections > Select : New Service Connection > Select : SSH
+    
+2. Add SSH Service Connection > Input Values : Public IP, Username, Password, id_rsa you cat eariler > OK.
 
 ### [↑](#contents) Run my BashScript [Optional]
 
@@ -225,8 +231,9 @@ Contributor:                                                [<img src="https://g
     
  * To log in use the 'default' username: admin and input the password you set above under the [admin_password='input value']
 
-### [↑](#contents) 7.0 Review Ansible Playbooks
-    1. https://docs.microsoft.com/en-us/samples/azure-samples/ansible-playbooks/ansible-playbooks-for-azure/
+### [↑](#contents) 7.0 Review Ansible Playbooks for Azure
+ 
+* https://docs.microsoft.com/en-us/samples/azure-samples/ansible-playbooks/ansible-playbooks-for-azure/
 
 ### [↑](#contents) 8.0 Push Configurations to Remote Virtual Machines from Main Ansible Node
 
