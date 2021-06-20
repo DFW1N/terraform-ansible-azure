@@ -25,6 +25,12 @@ Contributor:                                                [<img src="https://g
 - [Run the Shell Scripts](#-run-the-shell-scripts)
 - [Ansible Installation on Ubuntu Linux [Without Bash Script]](#-snsible-installation-on-ubuntu-linux)
 - [Ansible Tower Installation on Ubuntu Linux](#-ansible-tower-installation-on-ubuntu-linux)
+- [Changing the following values from the inventory file](#-changing-the-following-values-from-the-inventory-file)
+- [Review Ansible Playbooks for Azure](#-review-ansible-playbooks-for-azure)
+- [Push Configurations to Remote Virtual Machines from Main Ansible Node Connector](#-push-configurations-to-remote-virtual-machines-from-main-ansible-node-connector)
+- [Deployment Notes](#-notes)
+- [Support](#-support)
+- [Bugs & Errors](#-bugs-or-errors)
 
 ### [↑](#contents) Introduction
 
@@ -213,7 +219,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
       cd /tmp/ansible-tower-setup{version}
       vi inventory
    
-* Cat Value of file:
+* Inventory file contents:
 
       [tower]
       localhost ansible_connection=local
@@ -238,7 +244,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 * To disable this behavior, set this value to false
 * isolated_key_generation=true
  
-### [↑](#contents) Please change the following values from the inventory file:
+### [↑](#contents) Changing the following values from the inventory file:
 
         admin_password=''
         pg_password=''
@@ -253,11 +259,11 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
     
  * To log in use the 'default' username: admin and input the password you set above under the [admin_password='input value']
 
-### [↑](#contents) 7.0 Review Ansible Playbooks for Azure
+### [↑](#contents) Review Ansible Playbooks for Azure
  
 * https://docs.microsoft.com/en-us/samples/azure-samples/ansible-playbooks/ansible-playbooks-for-azure/
 
-### [↑](#contents) 8.0 Push Configurations to Remote Virtual Machines from Main Ansible Node
+### [↑](#contents) Push Configurations to Remote Virtual Machines from Main Ansible Node Connector
 
 * Follow the SSH requirements above and do the following : 
 
@@ -293,14 +299,14 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 
       ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' databases
 
-### Notes 
+### [↑](#contents) Notes 
 * Ansible Tower only support Ubuntu Linux until version 16.04
 * If you deploy my ansible-autosetup.sh bash script it will automatically give ansible-ssh-automation.sh the correct permissions to start the SSH process.
 * Ansible Tower does not offer support to Ubuntu version 18 or 19.
 * Ansible Tower Default Username : admin
 * Use command : terraform fmt | To Fix spacing in your code.
   
-## [↑](#support) Support
+### [↑](#support) Support
 Please Support me if this has helped you with rapid infratructure deployment by following me on Twitter or connecting with me on LinkedIn feel free to visit my LinkedIin at [Linkedin](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/). I hope this has helped please do not use this script for any illegal purposes, this script was solely written for educational purposes or to help DevOps produce virtual machines on Azure at a rapid rate
 
 
@@ -308,12 +314,7 @@ Please Support me if this has helped you with rapid infratructure deployment by 
 
 [<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/linkedin_circle-512.png" align="left" width="30">](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/) [@Sacha Roussakis-Notter](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/)
 
-## [↑](#bugs) Bugs/Errors: 
+### [↑](#bugs) Bugs or Errors: 
 
 #### Any Errors or Bugs feel free to make a Pull Request or Submit Issue.
 - Free to pull-request clean up or add new modules or clean up the code in general. 
-
-## [↑](#lisence) Lisence: 
-
-<a target="_blank" href="LICENSE" title="License: GNU General Public v3.0"><img src="https://img.shields.io/badge/License-GNU-red.svg"></a>
-<a target="_blank" href="DEVELOPER" title="License: Script Developer"><img src="https://img.shields.io/badge/Developer-Sacha-brightgreen.svg"></a>
