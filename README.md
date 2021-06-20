@@ -109,11 +109,12 @@ Contributor:                                                [<img src="https://g
       terraform init
       terraform fmt
       terraform plan
-      terraform apply -auto-approve
+      terraform apply
+      terraform destroy
  
 * Once the infrastructure has been deployed locate the public ip address and connect to the vm through ssh :
         
-         [ssh -i ~/.ssh/id_rsa adminuser@public.ip.address]
+         ssh -i ~/.ssh/id_rsa adminuser@192.73.20.123
 
 * To prepare Ansible please start following these commands so Ansible can communicate to Azure. Alternatively you can run the ansible-ssh-automation.sh script in the repository.
 
