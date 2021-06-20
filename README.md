@@ -16,10 +16,6 @@ Contributor:                                                [<img src="https://g
 
 ## [↑](#contents) Introduction
 
-### Notes 
-1. Ansible Tower only support Ubuntu Linux until version 16.04
-2. If you deploy my ansible-autosetup.sh bash script it will automatically give ansible-ssh-automation.sh the correct permissions to start the SSH process.
-3. Ansible Tower does not offer support to Ubuntu version 18 or 19.
 4. Prerequisites : 
     * Azure CLI [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli]
     * PowerShell [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell]
@@ -27,9 +23,6 @@ Contributor:                                                [<img src="https://g
     * Visual Studio Code [https://code.visualstudio.com/download
     * HashiCorp Terraform Extension [https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform]
     
-6. Ansible Tower Default Username : admin
-7. Use command : terraform fmt | To Fix spacing in your code.
-
 
 ### [↑](#contents) File Structure
 * main.tf [infrastructure as code]
@@ -221,7 +214,14 @@ rabbitmq_cookie=cookiemonster
     11. or ping remote hosts defined under your configuration such as [databases]
     12. ansible -m ping databases
     13. Check remote system versions : ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' databases
-   
+
+### Notes 
+* Ansible Tower only support Ubuntu Linux until version 16.04
+* If you deploy my ansible-autosetup.sh bash script it will automatically give ansible-ssh-automation.sh the correct permissions to start the SSH process.
+* Ansible Tower does not offer support to Ubuntu version 18 or 19.
+* Ansible Tower Default Username : admin
+* Use command : terraform fmt | To Fix spacing in your code.
+  
 ## [↑](#support) Support
 Please Support me if this has helped you with rapid infratructure deployment by following me on Twitter or connecting with me on LinkedIn feel free to visit my LinkedIin at [Linkedin](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/). I hope this has helped please do not use this script for any illegal purposes, this script was solely written for educational purposes or to help DevOps produce virtual machines on Azure at a rapid rate
 
