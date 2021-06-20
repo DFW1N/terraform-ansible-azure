@@ -121,8 +121,9 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 
 ### [↑](#contents) Deploy Terraform infrastructure commands
 
+* Note: You can find the latest Terraform code templates at : https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+
 * To deploy Terraform you must change some current values in the files but the main commands to Initialize, Plan, Build & Deploy it to Azure are the following :
-You can find the latest Terraform code templates at : https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
       terraform init
       terraform fmt
