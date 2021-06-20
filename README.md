@@ -45,13 +45,13 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
     
 
 ### [↑](#contents) File Structure
-* main.tf [infrastructure as code]
-* provider.tf [service principle exports]
-* variables.tf [infrastructure deployment variables]
-* ansible-autosetup.sh [requires manual set up of ssh or using the ansible-ssh-automation shell script]
-* ansible-ssh-automation.sh [Ensure you follow the prompts to correctly do it without doing it manually]
-* README.md [File to help guide people through the installation process and explains the current repository]
-* credentials [A file that has the values for your Azure Service Principle for Authentication]
+- [main.tf](https://github.com/DFW1N/terraform-ansible-azure/blob/main/main.tf) [infrastructure as code]
+- [provider.tf](https://github.com/DFW1N/terraform-ansible-azure/blob/main/provider.tf) [service principle exports]
+- [variables.tf](https://github.com/DFW1N/terraform-ansible-azure/blob/main/variables.tf) [infrastructure deployment variables]
+- [ansible-autosetup.sh](https://github.com/DFW1N/terraform-ansible-azure/blob/main/ansible-autosetup.sh) [requires manual set up of ssh or using the ansible-ssh-automation shell script]
+- [ansible-ssh-automation.sh](https://github.com/DFW1N/terraform-ansible-azure/blob/main/ansible-ssh-automation.sh) [Ensure you follow the prompts to correctly do it without doing it manually]
+- [README.md](https://github.com/DFW1N/terraform-ansible-azure/blob/main/README.md) [File to help guide people through the installation process and explains the current repository]
+- [credentials](https://github.com/DFW1N/terraform-ansible-azure/blob/main/credentials) [A file that has the values for your Azure Service Principle for Authentication]
 
 ### [↑](#contents) Main Terraform
 * Linux Virtual Machine Ansible Main Node [Ubuntu 16.04]
