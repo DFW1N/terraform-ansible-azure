@@ -15,6 +15,7 @@ Contributor:                                                [<img src="https://g
 - [main.tf](#-main-tf)
 - [Terraform Deployment](#-terraform-deployment-template-setup-for-ansible)
 - [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
+- [Connecting to Terraform Cloud Remote Backend](#-connecting-to-terraform-cloud-remote-backend)
 - [1.1 Connecting Terraform to there remote servers at app.terraform.io](#-connecting-terraform-to-there-remote-servers)
 - [1.2 Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
 - [What is Terraform](#-what-is-terraform)
@@ -55,7 +56,7 @@ Contributor:                                                [<img src="https://g
 * Please Review for Hashicorp Guide for Azure Service Principal Authentication
     https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
-### [↑](#contents) Connecting Terraform to there remote servers at app.terraform.io
+### [↑](#contents) Connecting to Terraform Cloud Remote Backend
 * Register an account at : https://app.terraform.io/ [Recommend enabling MFA] > Create Organization > [+ New workspace]
 * Ensure, Azure CLI, Powershell & Terraform are installed in Visual Studio Code open Terminal type : 
 
@@ -89,9 +90,9 @@ Contributor:                                                [<img src="https://g
 * What is Ansible? https://www.ansible.com/
 * What is Bash Script? https://ryanstutorials.net/bash-scripting-tutorial/bash-script.php
 
-### [↑](#contents) 3.0 Create a Azure Local Blob Storage Account Container for tfstate Backend File
+### [↑](#contents) Create a Azure local blob storage account Container for tfstate backend File
 
-* Using Azure Storage Container to store state file instead of remote backend from terraform
+* Using Azure Storage Container to store state file instead of remote backend from terraform in code :
 
         terraform {
           backend "azurerm" {
@@ -102,7 +103,7 @@ Contributor:                                                [<img src="https://g
           }
         }
 
-### [↑](#contents) 4.0 Deploy Terraform infrastructure
+### [↑](#contents) Deploy Terraform infrastructure commands
 
 * To deploy Terraform you must change some current values in the files but the main commands to Initialize, Plan, Build & Deploy it to Azure are the following :
 
