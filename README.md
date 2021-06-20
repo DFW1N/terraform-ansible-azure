@@ -45,11 +45,13 @@ Contributor:                                                [<img src="https://g
 Terraform automation to create a virtual machine with Ubuntu 16.04 and using custom bash scripts to automate the setup for ansible to control and push configurations to remote hosts on Microsoft Azure.
 
 1. Prerequisites : 
-    * Azure CLI [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli]
-    * PowerShell [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell]
-    * Terraform [https://learn.hashicorp.com/tutorials/terraform/install-cli]
-    * Visual Studio Code [https://code.visualstudio.com/download
-    * HashiCorp Terraform Extension [https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform]
+
+    - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+    - [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
+    - [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+    - [Visual Studio Code](https://code.visualstudio.com/download)
+    - [HashiCorp Terraform Extension](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform)
+    - [Azure DevOps](http://dev.azure.com/)
     
 
 ### [↑](#contents) File Structure
