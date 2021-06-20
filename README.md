@@ -19,6 +19,12 @@ Contributor:                                                [<img src="https://g
 - [1.1 Connecting Terraform to there remote servers at app.terraform.io](#-connecting-terraform-to-there-remote-servers)
 - [1.2 Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
 - [What is Terraform](#-what-is-terraform)
+- [Create a Azure local blob storage account Container for tfstate backend file](#-create-a-azure-local-blob-storage-account-Container-for-tfstate-backend-file)
+- [Deploy Terraform infrastructure commands](#-deploy-terraform-infrastructure-commands)
+- [Create SSH Service Connection in Azure DevOps](#-create-ssh-service-connection-in-azure-devops)
+- [Run the Shell Scripts](#-run-the-shell-scripts)
+- [Ansible Installation on Ubuntu Linux [Without Bash Script]](#-snsible-installation-on-ubuntu-linux)
+- [Ansible Tower Installation on Ubuntu Linux](#-ansible-tower-installation-on-ubuntu-linux)
 
 ### [↑](#contents) Introduction
 
@@ -43,10 +49,10 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 
 ### [↑](#contents) main.tf
 * Linux Virtual Machine Ansible Main Node [Ubuntu 16.04]
-* Virtual Network Interfaces [x2]
-* Azure Network Security Group Association [x1]
+* Virtual Network Interfaces
+* Azure Network Security Group Association
 * Azure Network Security Group
-* Azure Public IP Adress [x1]
+* Azure Public IP Adress
 * Azure Subnet Internal
 * Azure Resource Group
 * Azure Virtual Network
@@ -92,7 +98,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 * What is Ansible? https://www.ansible.com/
 * What is Bash Script? https://ryanstutorials.net/bash-scripting-tutorial/bash-script.php
 
-### [↑](#contents) Create a Azure local blob storage account Container for tfstate backend File
+### [↑](#contents) Create a Azure local blob storage account Container for tfstate backend file
 
 * Using Azure Storage Container to store state file instead of remote backend from terraform in code :
 
@@ -149,7 +155,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
       
         cat ~/.ssh/id_rsa
 
-### [↑](#contents) 5.0 Create SSH Service Connection in Azure DevOps
+### [↑](#contents) Create SSH Service Connection in Azure DevOps
 
 * Create the Service Connection to allow SSH Connection and push Ansible Playbooks to the Virtual Machine
     
@@ -157,7 +163,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
     
 2. Add SSH Service Connection > Input Values : Public IP, Username, Password, id_rsa you cat eariler > OK.
 
-### [↑](#contents) Run my BashScript [Optional]
+### [↑](#contents) Run the Shell Scripts
 
 * Git clone my bash script from https://github.com/DFW1N/terraform-ansible-azure
  
@@ -166,7 +172,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
         sudo chmod +x ansible-autosetup.sh
         sudo sh ansible-autosetup.sh
 
-### [↑](#contents) 6.0 Ansible Installation on Ubuntu Linux [Without Bash Script]
+### [↑](#contents) Ansible Installation on Ubuntu Linux
 
 * 1.0 Installing & Updating required packages for Ansible
 
@@ -196,7 +202,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
       ssh-keygen
       exit
 
-### [↑](#contents) 6.1 Ansible Tower Installation on Ubuntu Linux
+### [↑](#contents) Ansible Tower Installation on Ubuntu Linux
 * Ansible Tower Installation on Ubuntu Linux
 1. Access the Ansible website and Download the Ansible Tower product [https://www.ansible.com/products/tower]
 
