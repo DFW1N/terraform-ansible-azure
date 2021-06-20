@@ -223,8 +223,8 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
       exit
 
 ### [↑](#contents) Ansible Tower Installation on Ubuntu Linux
-* Ansible Tower Installation on Ubuntu Linux
-1. Access the Ansible website and Download the Ansible Tower product [https://www.ansible.com/products/tower]
+* Ansible Tower Installation on [Ubuntu Linux](https://ubuntu.com/)
+1. Access the [Ansible](https://www.ansible.com) website and Download the [Ansible Tower product](https://www.ansible.com/products/tower)
 
 * Assumation that the ansible-tower-setup-latest.tar.gz package is located inside the /tmp directory please follow commands in order:
 
@@ -298,10 +298,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
       
 * Input the following : 
 
-               ----------------------------------------
                         ansible_user: root
-               ----------------------------------------
-
 
 * Test remote host by pinging from ansible with the following command : 
 
@@ -316,6 +313,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
       ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' databases
 
 ### [↑](#contents) Notes 
+
 * Ansible Tower only support Ubuntu Linux until version 16.04
 * If you deploy my ansible-autosetup.sh bash script it will automatically give ansible-ssh-automation.sh the correct permissions to start the SSH process.
 * Ansible Tower does not offer support to Ubuntu version 18 or 19.
@@ -323,6 +321,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 * Use command : terraform fmt | To Fix spacing in your code.
   
 ### [↑](#support) Support
+
 Please Support me if this has helped you with rapid infratructure deployment by following me on Twitter or connecting with me on LinkedIn feel free to visit my LinkedIin at [Linkedin](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/). I hope this has helped please do not use this script for any illegal purposes, this script was solely written for educational purposes or to help DevOps produce virtual machines on Azure at a rapid rate
 
 
