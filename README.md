@@ -16,8 +16,8 @@ Contributor:                                                [<img src="https://g
 - [Terraform Deployment](#-terraform-deployment-template-setup-for-ansible)
 - [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
 - [Connecting to Terraform Cloud Remote Backend](#-connecting-to-terraform-cloud-remote-backend)
-- [1.1 Connecting Terraform to there remote servers at app.terraform.io](#-connecting-terraform-to-there-remote-servers)
-- [1.2 Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
+- [Connecting Terraform to there remote servers at app.terraform.io](#-connecting-terraform-to-there-remote-servers)
+- [Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
 - [What is Terraform](#-what-is-terraform)
 - [Create a Azure local blob storage account Container for tfstate backend file](#-create-a-azure-local-blob-storage-account-Container-for-tfstate-backend-file)
 - [Deploy Terraform infrastructure commands](#-deploy-terraform-infrastructure-commands)
@@ -66,7 +66,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 ### [↑](#contents) Terraform Deployment Template Setup for Ansible
 * This template has been created for the purpose of deploying a Linux VM to Azure, using Terraform Infrastructure as Code to automatically provision an environment to deploy Ansible or Ansible Tower to a Enterprise environment rapidly and in an automated matter. This infrastructure has been written by Sacha Roussakis-Notter you can view more at: [Github](https://github.com/DFW1N/).
 
-### [↑](#contents) 1.0 Create a Service Principal with a Client Secret
+### [↑](#contents) Create a Service Principal with a Client Secret
 * Please Review for Hashicorp Guide for Azure Service Principal Authentication
     https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
