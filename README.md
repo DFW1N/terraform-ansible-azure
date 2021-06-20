@@ -257,7 +257,9 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
     
  * On completion of installation open browser and enter IP address of your Ansible tower.
     
- * To log in use the 'default' username: admin and input the password you set above under the [admin_password='input value']
+ * To log in use the 'default' username: admin and input the password you set above under the 
+      
+        [admin_password='input value']
 
 ### [↑](#contents) Review Ansible Playbooks for Azure
  
