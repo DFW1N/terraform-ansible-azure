@@ -7,14 +7,16 @@ Contributor:                                                [<img src="https://g
 
 - [Sacha Roussakis-Notter](https://github.com/DFW1N)
 
- [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Cimol)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
+ [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Sacha)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
 
 ## 📖 Table of Contents
 - [Introduction](#-introduction)
 - [File Structure](#-file-structure)
+- [main.tf](#-main-tf)
+- [Terraform Deployment](#-terraform-deployment-template-setup-for-ansible)
+- [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
 
-
-## [↑](#contents) Introduction
+### [↑](#contents) Introduction
 
 4. Prerequisites : 
     * Azure CLI [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli]
@@ -96,27 +98,37 @@ Contributor:                                                [<img src="https://g
 
 ### [↑](#contents) 4.0 Deploy Terraform infrastructure
 * Completing the following steps 1 to 10 allows for Ansible to have SSH authentication and create a SSH service connection in Azure DevOps
-1. Connect to Virtual Machine Public IP Address [ssh -i ~/.ssh/id_rsa adminuser@public.ip.address]
-2. mkdir ~/.azure
-3. nano ~/.azure/credentials
+* Connect to Virtual Machine Public IP Address 
+        
+         [ssh -i ~/.ssh/id_rsa adminuser@public.ip.address]
 
-    [default]
+         mkdir ~/.azure
+         
+         nano ~/.azure/credentials
 
-    subscription_id=<your-Azure-subscription_id>
+* Input Azure Service Principle Values into these below located in the ~/.azure/credentials directory.
 
-    client_id=<azure service-principal-appid>
+        [default]
 
-    secret=<azure service-principal-password>
+        subscription_id=<your-Azure-subscription_id>
 
-    tenant=<azure serviceprincipal-tenant> 
+        client_id=<azure service-principal-appid>
 
-    5. ssh-keygen -t rsa
-    6. chmod 755 ~/.ssh
-    7. touch ~/.ssh/authorized_keys
-    8. chmod 644 ~/.ssh/authorized_keys
-    9. ssh-copy-id adminuser@127.0.0.1
-    10. Input account password value
-    11. cat ~/.ssh/id_rsa
+        secret=<azure service-principal-password>
+
+        tenant=<azure serviceprincipal-tenant> 
+
+* You can create your SSH keys using the commands below or by using the ssh shell script in this repository.
+
+      ssh-keygen -t rsa
+      chmod 755 ~/.ssh
+      touch ~/.ssh/authorized_keys
+      chmod 644 ~/.ssh/authorized_keys
+      ssh-copy-id adminuser@127.0.0.1
+      
+ * Input account password value
+      
+        cat ~/.ssh/id_rsa
 
 ### [↑](#contents) 5.0 Create SSH Service Connection in Azure DevOps
 * Create the Service Connection to allow SSH Connection and push Ansible Playbooks to the Virtual Machine
@@ -124,29 +136,43 @@ Contributor:                                                [<img src="https://g
     2. Add SSH Service Connection > Input Values : Public IP, Username, Password, id_rsa you cat eariler > OK.
 
 ### [↑](#contents) Run my BashScript [Optional]
-    # Git clone my bash script from https://github.com/DFW1N/terraform-ansible-azure
-    1. git clone https://github.com/DFW1N/terraform-ansible-azure.git && cd ansible-tower
-    3. sudo chmod +x ansible-autosetup.sh
-    4. sudo sh ansible-autosetup.sh
 
+* Git clone my bash script from https://github.com/DFW1N/terraform-ansible-azure
+ 
+        git clone https://github.com/DFW1N/terraform-ansible-azure.git && cd terraform-ansible-azure
+        
+        sudo chmod +x ansible-autosetup.sh
+        sudo sh ansible-autosetup.sh
 
 ### [↑](#contents) 6.0 Ansible Installation on Ubuntu Linux [Without Bash Script]
-* Installing & Updating required packages for Ansible
-    1. sudo apt-get update
-    2. sudo Ansible only support Ubuntu Linux until version 16.
-* Adding the offical Ansible repository to APT database
-    3. apt-add-repository ppa:ansible/ansible
-* Install Ansible
-    4. sudo apt-get update
-    5. sudo apt-get install ansible
-* Verify Ansible Installation Version
-    6. ansible --version
-    7. useradd -m -s /bin/bash -p ansible ansible
-* Once Ansible user account is created change user to Ansible
-    8. su ansible
-* Lastly generate a SSH key to the Ansible user account
-    9. ssh-keygen
-    10. exit
+
+* 1.0 Installing & Updating required packages for Ansible
+
+      sudo apt-get update
+      sudo Ansible only support Ubuntu Linux until version 16.
+
+* 2.0 Adding the offical Ansible repository to APT database
+
+      apt-add-repository ppa:ansible/ansible
+
+* 3.0 Install Ansible
+
+      sudo apt-get update
+      sudo apt-get install ansible
+    
+* 4.0 Verify Ansible Installation Version
+
+      ansible --version
+      useradd -m -s /bin/bash -p ansible ansible
+ 
+* 5.0 Once Ansible user account is created change user to Ansible
+
+      su ansible
+ 
+* 6.0 Lastly generate a SSH key to the Ansible user account
+ 
+      ssh-keygen
+      exit
 
 ### [↑](#contents) 6.1 Ansible Tower Installation on Ubuntu Linux
 * Ansible Tower Installation on Ubuntu Linux
@@ -226,7 +252,7 @@ rabbitmq_cookie=cookiemonster
 Please Support me if this has helped you with rapid infratructure deployment by following me on Twitter or connecting with me on LinkedIn feel free to visit my LinkedIin at [Linkedin](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/). I hope this has helped please do not use this script for any illegal purposes, this script was solely written for educational purposes or to help DevOps produce virtual machines on Azure at a rapid rate
 
 
-[<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/logo-twitter-circle-png-transparent-image-1.png" align="left" width="30">](https://twitter.com/sacha_roussakis/)  [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Cimol)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
+[<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/logo-twitter-circle-png-transparent-image-1.png" align="left" width="30">](https://twitter.com/sacha_roussakis/)  [![Follow Sacha Roussakis | Sacha on Twitter](https://img.shields.io/twitter/follow/Sacha.svg?style=social&label=Follow%20%40Sacha)](https://twitter.com/intent/user?screen_name=sacha_roussakis "Follow Sacha Roussakis | Sacha on Twitter")
 
 [<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/linkedin_circle-512.png" align="left" width="30">](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/) [@Sacha Roussakis-Notter](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/)
 
