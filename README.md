@@ -175,8 +175,9 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
       chmod 755 ~/.ssh
       touch ~/.ssh/authorized_keys
       chmod 644 ~/.ssh/authorized_keys
-      ssh-copy-id adminuser@127.0.0.1
-      
+      ssh-copy-id -i /root/.ssh/id_rsa.pub root@127.0.0.1
+  
+ * You can change the [127.0.0.1] ip address to your remote hosts.
  * Input account password value
       
         cat ~/.ssh/id_rsa
