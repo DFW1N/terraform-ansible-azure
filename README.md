@@ -161,6 +161,8 @@ The following Ansible-specific terms that are used throughout this guide include
         sudo chmod +x autosetup.sh
         sudo sh autosetup.sh
 
+#### IMPORTANT: The autosetup.sh only automates until step 7.0 please do the rest manually.
+
 ### [↑](#contents) Ansible Installation on Ubuntu Linux
 
 * Please follow this section if you prefer to not use the shell script to automate the process for you.
