@@ -20,22 +20,21 @@ Contributor:                                                [<img src="https://g
 ## 📖 Table of Contents
 - [Introduction](#-introduction)
 - [File Structure](#-file-structure)
+- [What is Terraform](#-what-is-terraform)
 - [main.tf](#-main-terraform)
 - [Terraform Deployment](#-terraform-deployment-template-setup-for-ansible)
-- [Connecting to Terraform Cloud Remote Backend](#-connecting-to-terraform-cloud-remote-backend)
-- [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
-- [Connecting Terraform to there remote servers at app.terraform.io](#-connecting-terraform-to-there-remote-servers)
-- [Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
-- [What is Terraform](#-what-is-terraform)
-- [Create a Azure local blob storage account Container for tfstate backend file](#-create-a-azure-local-blob-storage-account-Container-for-tfstate-backend-file)
 - [Deploy Terraform infrastructure commands](#-deploy-terraform-infrastructure-commands)
+- [Connecting to Terraform Cloud Remote Backend](#-connecting-to-terraform-cloud-remote-backend)
+- [Connecting Terraform to there remote servers at app.terraform.io](#-connecting-terraform-to-there-remote-servers)
+- [Create a Azure local blob storage account Container for tfstate backend file](#-create-a-azure-local-blob-storage-account-Container-for-tfstate-backend-file)
+- [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
+- [Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
 - [Create SSH Service Connection in Azure DevOps](#-create-ssh-service-connection-in-azure-devops)
 - [Run the Shell Scripts](#-run-the-shell-scripts)
 - [Ansible Installation on Ubuntu Linux [Without Bash Script]](#-snsible-installation-on-ubuntu-linux)
-- [Ansible Tower Installation on Ubuntu Linux](#-ansible-tower-installation-on-ubuntu-linux)
-- [Changing the following values from the inventory file](#-changing-the-following-values-from-the-inventory-file)
+- [Configure Ansible to run as a specific user](#-configure-ansible-to-run-as-a-specific-user)
 - [Review Ansible Playbooks for Azure](#-review-ansible-playbooks-for-azure)
-- [Push Configurations to Remote Virtual Machines from Main Ansible Node Connector](#-push-configurations-to-remote-virtual-machines-from-main-ansible-node-connector)
+- [Ansible Tower Installation on Ubuntu Linux](#-ansible-tower-installation-on-ubuntu-linux)
 - [Deployment Notes](#-notes)
 - [Support](#-support)
 - [Bugs & Errors](#-bugs-or-errors)
@@ -58,10 +57,16 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 - [main.tf](https://github.com/DFW1N/terraform-ansible-azure/blob/main/main.tf) [infrastructure as code]
 - [provider.tf](https://github.com/DFW1N/terraform-ansible-azure/blob/main/provider.tf) [service principle exports]
 - [variables.tf](https://github.com/DFW1N/terraform-ansible-azure/blob/main/variables.tf) [infrastructure deployment variables]
-- [ansible-autosetup.sh](https://github.com/DFW1N/terraform-ansible-azure/blob/main/ansible-autosetup.sh) [requires manual set up of ssh or using the ansible-ssh-automation shell script]
-- [ansible-ssh-automation.sh](https://github.com/DFW1N/terraform-ansible-azure/blob/main/ansible-ssh-automation.sh) [Ensure you follow the prompts to correctly do it without doing it manually]
+- [autosetup.sh](https://github.com/DFW1N/terraform-ansible-azure/blob/main/autosetup.sh) [automates commands needed to install ansible and generate ssh key]
 - [README.md](https://github.com/DFW1N/terraform-ansible-azure/blob/main/README.md) [File to help guide people through the installation process and explains the current repository]
 - [credentials](https://github.com/DFW1N/terraform-ansible-azure/blob/main/credentials) [A file that has the values for your Azure Service Principle for Authentication]
+
+### [↑](#contents) What is Terraform
+* What is Terraform? https://www.terraform.io/
+* What is Azure? https://azure.microsoft.com/en-us/
+* What is Ansible? https://www.ansible.com/
+* What is Bash Script? https://ryanstutorials.net/bash-scripting-tutorial/bash-script.php
+
 
 ### [↑](#contents) Main Terraform
 * Linux Virtual Machine Ansible Main Node [Ubuntu 16.04]
@@ -74,14 +79,22 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 * Azure Virtual Network
 
 ### [↑](#contents) Terraform Deployment Template Setup for Ansible
-* This template has been created for the purpose of deploying a Linux VM to Azure, using Terraform Infrastructure as Code to automatically provision an environment to deploy Ansible or Ansible Tower to a Enterprise environment rapidly and in an automated matter. This infrastructure has been written by Sacha Roussakis-Notter you can view more at: [Github](https://github.com/DFW1N/).
+* This template has been created for the purpose of deploying a Linux VM to Azure, using Terraform Infrastructure as Code to automatically provision an environment to deploy Ansible or Ansible Tower to a Enterprise environment rapidly and in an automated matter.
 
-### [↑](#contents) Create a Service Principal with a Client Secret
-* Please Review for Hashicorp Guide for Azure Service Principal Authentication
-    https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+### [↑](#contents) Deploy Terraform infrastructure commands
+
+* Note: You can find the latest Terraform code templates at : https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+* Templates: You can view Terraform code examples at : https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+
+* To deploy Terraform you must change some current values in the files but the main commands to Initialize, Plan, Build & Deploy it to Azure are the following :
+
+      terraform init
+      terraform fmt
+      terraform plan
+      terraform apply
+      terraform destroy
+
     
-
-
 ### [↑](#contents) Connecting to Terraform Cloud Remote Backend
 * Register an account at : https://app.terraform.io/ [Recommend enabling MFA] > Create Organization > [+ New workspace]
 * Ensure, Azure CLI, Powershell & Terraform are installed in Visual Studio Code open Terminal type : 
@@ -105,22 +118,6 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 
 ![image](https://user-images.githubusercontent.com/45083490/122667564-c27c0600-d1f6-11eb-9734-1b54dd26f138.png)
 
-
-### [↑](#contents) Configuring the Service Principal in Terraform
-* Setting these values into your environment variable allows you to remove them from your code as these are SECRET and should not be shared.
-* Once these variables are set restart your terminal and Visual Studio Code to allow it to take effect.
-
-        setx ARM_CLIENT_ID "00000000-0000-0000-0000-000000000000"
-        setx ARM_CLIENT_SECRET "00000000-0000-0000-0000-000000000000"
-        setx ARM_SUBSCRIPTION_ID "00000000-0000-0000-0000-000000000000"
-        setx ARM_TENANT_ID "00000000-0000-0000-0000-000000000000"
-
-### [↑](#contents) What is Terraform
-* What is Terraform? https://www.terraform.io/
-* What is Azure? https://azure.microsoft.com/en-us/
-* What is Ansible? https://www.ansible.com/
-* What is Bash Script? https://ryanstutorials.net/bash-scripting-tutorial/bash-script.php
-
 ### [↑](#contents) Create a Azure local blob storage account Container for tfstate backend file
 
 * Using Azure Storage Container to store state file instead of remote backend from terraform in code :
@@ -134,30 +131,68 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
           }
         }
 
-### [↑](#contents) Deploy Terraform infrastructure commands
+### [↑](#contents) Create a Service Principal with a Client Secret
+* Please Review for Hashicorp Guide for Azure Service Principal Authentication
+    https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
-* Note: You can find the latest Terraform code templates at : https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
-* Templates: You can view Terraform code examples at : https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+### [↑](#contents) Configuring the Service Principal in Terraform
+* Setting these values into your environment variable allows you to remove them from your code as these are SECRET and should not be shared.
+* Once these variables are set restart your terminal and Visual Studio Code to allow it to take effect.
 
-* To deploy Terraform you must change some current values in the files but the main commands to Initialize, Plan, Build & Deploy it to Azure are the following :
-
-      terraform init
-      terraform fmt
-      terraform plan
-      terraform apply
-      terraform destroy
+        setx ARM_CLIENT_ID "00000000-0000-0000-0000-000000000000"
+        setx ARM_CLIENT_SECRET "00000000-0000-0000-0000-000000000000"
+        setx ARM_SUBSCRIPTION_ID "00000000-0000-0000-0000-000000000000"
+        setx ARM_TENANT_ID "00000000-0000-0000-0000-000000000000"
  
 * Once the infrastructure has been deployed locate the public ip address and connect to the vm through ssh :
         
          ssh -i ~/.ssh/id_rsa adminuser@192.73.20.123
 
-* To prepare Ansible please start following these commands so Ansible can communicate to Azure. Alternatively you can run the ansible-ssh-automation.sh script in the repository.
+### [↑](#contents) Create SSH Service Connection in Azure DevOps
 
-         mkdir ~/.azure
-         
-         nano ~/.azure/credentials
+* Create the Service Connection to allow SSH Connection and push Ansible Playbooks to the Virtual Machine
+    
+1. https://dev.azure.com/ > Project > Project Settings > Service Connections > Select : New Service Connection > Select : SSH
+    
+2. Add SSH Service Connection > Input Values : Public IP, Username, Password, id_rsa you cat eariler > OK.
 
-* Input Azure Service Principle Values into these below located in the ~/.azure/credentials directory.
+### [↑](#contents) Run the Shell Script
+
+* Git clone my bash script from https://github.com/DFW1N/terraform-ansible-azure
+ 
+        git clone https://github.com/DFW1N/terraform-ansible-azure.git && cd terraform-ansible-azure
+        
+        sudo chmod +x autosetup.sh
+        sudo sh autosetup.sh
+
+### [↑](#contents) Ansible Installation on Ubuntu Linux
+
+* Please follow this section if you prefer to not use the shell script to automate the process for you.
+
+* 1.0 Installing & Updating required packages for Ansible:
+
+      sudo apt-get upgrade -y
+
+* 2.0 Adding the offical Ansible repository to APT database:
+
+      sudo apt-add-repository ppa:ansible/ansible
+
+* 3.0 Install Ansible:
+
+      sudo apt-get update
+      sudo apt-get install ansible -y
+      sudo apt-get install python -y
+    
+* 4.0 Verify Ansible Installation Version:
+
+      ansible --version
+ 
+* 5.0 Create the files to allow Ansible Server to authenticate with Azure: [Azure only]
+
+      mkdir ~/.azure && cd ~/.azure;
+      sudo curl https://raw.githubusercontent.com/DFW1N/ansible-tower/main/credentials -o credentials;
+
+* Input Azure Service Principle Values into these below located in the ~/.azure/credentials directory: [Azure only]
 
         [default]
 
@@ -168,66 +203,73 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
         secret=<azure service-principal-password>
 
         tenant=<azure serviceprincipal-tenant> 
-
-* You can create your SSH keys using the commands below or by using the ssh shell script in this repository.
-
-      ssh-keygen -t rsa
-      chmod 755 ~/.ssh
-      touch ~/.ssh/authorized_keys
-      chmod 644 ~/.ssh/authorized_keys
-      ssh-copy-id -i /root/.ssh/id_rsa.pub root@127.0.0.1
-  
- * You can change the [127.0.0.1] ip address to your remote hosts.
- * Input account password value
-      
-        cat ~/.ssh/id_rsa
-
-### [↑](#contents) Create SSH Service Connection in Azure DevOps
-
-* Create the Service Connection to allow SSH Connection and push Ansible Playbooks to the Virtual Machine
-    
-1. https://dev.azure.com/ > Project > Project Settings > Service Connections > Select : New Service Connection > Select : SSH
-    
-2. Add SSH Service Connection > Input Values : Public IP, Username, Password, id_rsa you cat eariler > OK.
-
-### [↑](#contents) Run the Shell Scripts
-
-* Git clone my bash script from https://github.com/DFW1N/terraform-ansible-azure
  
-        git clone https://github.com/DFW1N/terraform-ansible-azure.git && cd terraform-ansible-azure
-        
-        sudo chmod +x ansible-autosetup.sh
-        sudo sh ansible-autosetup.sh
-
-### [↑](#contents) Ansible Installation on Ubuntu Linux
-
-* 1.0 Installing & Updating required packages for Ansible
-
-      sudo apt-get update
-      sudo Ansible only support Ubuntu Linux until version 16.
-
-* 2.0 Adding the offical Ansible repository to APT database
-
-      apt-add-repository ppa:ansible/ansible
-
-* 3.0 Install Ansible
-
-      sudo apt-get update
-      sudo apt-get install ansible
-    
-* 4.0 Verify Ansible Installation Version
-
-      ansible --version
-      useradd -m -s /bin/bash -p ansible ansible
- 
-* 5.0 Once Ansible user account is created change user to Ansible
-
-      su ansible
- 
-* 6.0 Lastly generate a SSH key to the Ansible user account
+* 6.0 Lastly generate a SSH key to the Ansible user account:
  
       ssh-keygen
-      exit
+      cat ~/.ssh/id_rsa.pub
+ 
+* 7.0 Copy id_rsa.pub to remote server you want to connect to your Ansible server:
+
+* Option 1 Quick Version: Issue this command from Ansible Server to remote host:
+
+      sudo ssh-copy-id 192.182.16.23
+
+* Password prompt for remote host will pop up input that value to add the ssh id_rsa.pub to remote host.
+
+* Option 2 Longer Version:
+
+      Copy the text from the key
+      Log into your node server
+      run: sudo -s
+      Open the authorized_keys file: sudo nano ~/.ssh/authorized_keys
+      Paste the id_rsa.pub key to the file from your Ansible server
+      Save and close the file
+ 
+ * Please ensure you are logged in as root to view authorized_keys as it won't be located anywhere else but under the /root/ home directory.
+ 
+* 8.0 Configure your Ansible files:
+Please ensure you are logged in on your Ansible server and configure Ansible files for remote hosts:
+
+      sudo nano /etc/ansible/hosts
+      
+* Add your remote servers to this file using the following syntax:
+
+* The following example defines a group named [azureservers] with two different servers in it, each identified by a custom alias: azureserver & azureserver2 remmeber to change the IP address to your remote hosts.
+
+      [azureservers]
+      azureserver ansible_host=192.182.16.23
+      azureserver2 ansible_host=192.173.34.23
+
+      [all:vars]
+      ansible_python_interpreter=/usr/bin/python3
+
+### [↑](#contents) Configure Ansible to run as a specific user:
+
+* creating a file that instructs all servers to connect as root user : 
+   
+      sudo mkdir /etc/ansible/group_vars && sudo nano /etc/ansible/group_vars/servers
+      
+* Input the following username used on the remote host: 
+
+       ansible_ssh_user: adminuser
+
+* Test remote host by pinging from ansible with the following command : 
+
+      ansible -m ping all
+    
+* Ping remote hosts defined under your configuration such as [databases] :
+
+      ansible -m ping databases
+    
+* Check remote system versions :
+
+      ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' azureservers
+
+### [↑](#contents) Review Ansible Playbooks for Azure
+ 
+* https://docs.microsoft.com/en-us/samples/azure-samples/ansible-playbooks/ansible-playbooks-for-azure/
+
 
 ### [↑](#contents) Ansible Tower Installation on Ubuntu Linux
 * Ansible Tower Installation on [Ubuntu Linux](https://ubuntu.com/)
@@ -265,7 +307,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 * To disable this behavior, set this value to false
 * isolated_key_generation=true
  
-### [↑](#contents) Changing the following values from the inventory file:
+### Changing the following values from the inventory file for Ansible Tower:
 
         admin_password=''
         pg_password=''
@@ -281,43 +323,6 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
  * To log in use the 'default' username: admin and input the password you set above under the 
       
         [admin_password='input value']
-
-### [↑](#contents) Review Ansible Playbooks for Azure
- 
-* https://docs.microsoft.com/en-us/samples/azure-samples/ansible-playbooks/ansible-playbooks-for-azure/
-
-### [↑](#contents) Push Configurations to Remote Virtual Machines from Main Ansible Node Connector
-
-* Follow the SSH requirements above and do the following : 
-
-      ssh-copy-id {admin_user}@{Remote_VM_IP} //Example: ssh-copy-id root@192.70.109.15
-    
-* Input host password hit enter to add the public key you can now authenticate without being requested for a password.
-* Define your remote hosts through the following file : 
-
-      vim /etc/ansible/hosts > [webservers]
-                               {remote host IP address}
-                               {//Example 192.70.109.15}
-                                
-* creating a file that instructs all servers to connect as root user : 
-   
-      sudo mkdir /etc/ansible/group_vars && sudo nano /etc/ansible/group_vars/servers
-      
-* Input the following : 
-
-                        ansible_user: root
-
-* Test remote host by pinging from ansible with the following command : 
-
-      ansible -m ping all
-    
-* Ping remote hosts defined under your configuration such as [databases] :
-
-      ansible -m ping databases
-    
-* Check remote system versions :
-
-      ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' databases
 
 ### [↑](#contents) Notes 
 
