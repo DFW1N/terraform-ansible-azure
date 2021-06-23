@@ -42,6 +42,14 @@ Contributor:                                                [<img src="https://g
 
 Terraform automation to create a virtual machine with Ubuntu 16.04 and using custom bash scripts to automate the setup for ansible to control and push configurations to remote hosts on Microsoft Azure.
 
+#### Ansible Glossary:
+The following Ansible-specific terms that are used throughout this guide include the following:
+
+* Inventory File: a file that contains information about the servers Ansible controls, typically located at /etc/ansible/hosts.
+* Playbook: a file containing a series of tasks to be executed on a remote server.
+* Remote Host/Node: a server controlled by the Ansible server.
+* Ansible Server: a system where Ansible is installed and configured to connect and execute commands on remote hosts/nodes.
+
 1. Prerequisites : 
 
     - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
