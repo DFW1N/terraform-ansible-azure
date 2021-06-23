@@ -21,7 +21,6 @@ Contributor:                                                [<img src="https://g
 - [Introduction](#-introduction)
 - [File Structure](#-file-structure)
 - [What is Terraform](#-what-is-terraform)
-- [main.tf](#-main-terraform)
 - [Terraform Deployment](#-terraform-deployment-template-setup-for-ansible)
 - [Deploy Terraform infrastructure commands](#-deploy-terraform-infrastructure-commands)
 - [Connecting to Terraform Cloud Remote Backend](#-connecting-to-terraform-cloud-remote-backend)
@@ -66,17 +65,6 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 * What is Azure? https://azure.microsoft.com/en-us/
 * What is Ansible? https://www.ansible.com/
 * What is Bash Script? https://ryanstutorials.net/bash-scripting-tutorial/bash-script.php
-
-
-### [↑](#contents) Main Terraform
-* Linux Virtual Machine Ansible Main Node [Ubuntu 16.04]
-* Virtual Network Interfaces
-* Azure Network Security Group Association
-* Azure Network Security Group
-* Azure Public IP Adress
-* Azure Subnet Internal
-* Azure Resource Group
-* Azure Virtual Network
 
 ### [↑](#contents) Terraform Deployment Template Setup for Ansible
 * This template has been created for the purpose of deploying a Linux VM to Azure, using Terraform Infrastructure as Code to automatically provision an environment to deploy Ansible or Ansible Tower to a Enterprise environment rapidly and in an automated matter.
