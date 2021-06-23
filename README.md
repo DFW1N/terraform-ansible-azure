@@ -157,25 +157,25 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 
 * Please follow this section if you prefer to not use the shell script to automate the process for you.
 
-* 1.0 Installing & Updating required packages for Ansible:
+#### 1.0: Installing & Updating required packages for Ansible:
 
       sudo apt-get upgrade -y
 
-* 2.0 Adding the offical Ansible repository to APT database:
+#### 2.0: Adding the offical Ansible repository to APT database:
 
       sudo apt-add-repository ppa:ansible/ansible
 
-* 3.0 Install Ansible:
+#### 3.0: Install Ansible:
 
       sudo apt-get update
       sudo apt-get install ansible -y
       sudo apt-get install python -y
     
-* 4.0 Verify Ansible Installation Version:
+#### 4.0: Verify Ansible Installation Version:
 
       ansible --version
  
-* 5.0 Create the files to allow Ansible Server to authenticate with Azure: [Azure only]
+#### 5.0: Create the files to allow Ansible Server to authenticate with Azure: [Azure only]
 
       mkdir ~/.azure && cd ~/.azure;
       sudo curl https://raw.githubusercontent.com/DFW1N/ansible-tower/main/credentials -o credentials;
@@ -192,12 +192,12 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
 
         tenant=<azure serviceprincipal-tenant> 
  
-* 6.0 Lastly generate a SSH key to the Ansible user account:
+#### 6.0: Lastly generate a SSH key to the Ansible server:
  
       ssh-keygen
       cat ~/.ssh/id_rsa.pub
  
-* 7.0 Copy id_rsa.pub to remote server you want to connect to your Ansible server:
+#### 7.0: Copy id_rsa.pub to remote server you want to connect to your Ansible server:
 
 * Option 1 Quick Version: Issue this command from Ansible Server to remote host:
 
@@ -216,7 +216,7 @@ Terraform automation to create a virtual machine with Ubuntu 16.04 and using cus
  
  * Please ensure you are logged in as root to view authorized_keys as it won't be located anywhere else but under the /root/ home directory.
  
-* 8.0 Configure your Ansible files:
+#### 8.0: Configure your Ansible files:
 Please ensure you are logged in on your Ansible server and configure Ansible files for remote hosts:
 
       sudo nano /etc/ansible/hosts
@@ -232,6 +232,52 @@ Please ensure you are logged in on your Ansible server and configure Ansible fil
       [all:vars]
       ansible_python_interpreter=/usr/bin/python3
 
+* View your ansible inventory you will see your server infrastructure thats defined in your inventory file on your Ansible server:
+
+      ansible-inventory --list -y
+
+* Output
+      
+      all:
+        children:
+          azureservers:
+            hosts:
+              azureserver:
+                ansible_host: 192.182.16.23
+                ansible_python_interpreter: /usr/bin/python3
+              azureserver2:
+                ansible_host: 192.173.34.23
+                ansible_python_interpreter: /usr/bin/python3
+
+#### 9.0: Test your Ansible Connection:
+
+* Test remote host by pinging from ansible with the following command : 
+
+      ansible -m ping all
+
+* Expected output response:
+
+      azureserver | SUCCESS => {
+          "changed": false, 
+          "ping": "pong"
+      }
+      azureserver2 | SUCCESS => {
+      "changed": false, 
+      "ping": "pong"
+      }
+    
+* Ping remote hosts defined under your configuration such as [databases] :
+
+      ansible -m ping databases
+    
+* Check remote system versions :
+
+      ansible -u adminuser -i /etc/ansible/hosts -m raw -a 'uname -a' azureservers
+
+* Check disk usage on all remote servers with:
+
+      ansible all -a "df -h" -u adminuser
+
 ### [↑](#contents) Configure Ansible to run as a specific user:
 
 * creating a file that instructs all servers to connect as root user : 
@@ -242,20 +288,9 @@ Please ensure you are logged in on your Ansible server and configure Ansible fil
 
        ansible_ssh_user: adminuser
 
-* Test remote host by pinging from ansible with the following command : 
-
-      ansible -m ping all
-    
-* Ping remote hosts defined under your configuration such as [databases] :
-
-      ansible -m ping databases
-    
-* Check remote system versions :
-
-      ansible -u root -i /etc/ansible/hosts -m raw -a 'uname -a' azureservers
-
 ### [↑](#contents) Review Ansible Playbooks for Azure
- 
+
+* Playbook: A file containing a series of tasks to be executed on a remote server.
 * https://docs.microsoft.com/en-us/samples/azure-samples/ansible-playbooks/ansible-playbooks-for-azure/
 
 
