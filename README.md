@@ -50,6 +50,15 @@ The following Ansible-specific terms that are used throughout this guide include
 * Remote Host/Node: a server controlled by the Ansible server.
 * Ansible Server: a system where Ansible is installed and configured to connect and execute commands on remote hosts/nodes.
 
+### Randomised Password String:
+
+* Please ensure when you deploy your infrastructure to Azure to view your Visual Studio Code Terminal where the password string will display it will look something like this and the count value will be assigned to the count.index to the virtual machines:
+
+      random_string.password[1]: Creation complete after 0s [id=r@Tt4AR?!Yv@2?PI]
+      random_string.password[0]: Creation complete after 0s [id=*?wq?*2l2GI4x5Bj]
+
+* The random_string count [1] will be assigned to the virtual machine count with [1] etc.
+
 1. Prerequisites : 
 
     - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
