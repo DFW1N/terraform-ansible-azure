@@ -132,6 +132,20 @@ The following Ansible-specific terms that are used throughout this guide include
     https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
 ### [↑](#contents) Configuring the Service Principal in Terraform
+
+#### Service Principle Code in provider.tf file:
+
+        provider "azurerm" {
+          features {}
+
+          subscription_id = "00000000-0000-0000-0000-000000000000"
+          client_id       = "00000000-0000-0000-0000-000000000000"
+          client_secret   = "00000000-0000-0000-0000-000000000000"
+          tenant_id       = "00000000-0000-0000-0000-000000000000"
+        }
+
+#### Optional: Removing Service Principle variables from provider.tf file:
+
 * Setting these values into your environment variable allows you to remove them from your code as these are SECRET and should not be shared.
 * Once these variables are set restart your terminal and Visual Studio Code to allow it to take effect.
 
