@@ -1,6 +1,6 @@
   <a target="_blank" href="HCL" title="HCL: Hashicorp Language"><img src="https://img.shields.io/badge/HashiCorp-HCL-red.svg"></a>
   <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/python-%3E=_3.5-yellow.svg"></a>
-  ![OS](https://img.shields.io/badge/Written%20in-Shell-orange.svg?style=flat-square)
+  ![OS](https://img.shields.io/badge/Automated%20in-Shell-orange.svg?style=flat-square)
 
 ## [↑](#contents) Credits
 Contributor:                                                [<img src="https://github.com/DFW1N/DFW1N-OSINT/blob/master/DFW1N%20Logo.png" align="right" width="120">](https://github.com/DFW1N/DFW1N-OSINT)
