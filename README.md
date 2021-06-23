@@ -29,7 +29,7 @@ Contributor:                                                [<img src="https://g
 - [Create a Service Principal with a Client Secret](#-create-a-service-principal-with-a-client-secret)
 - [Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
 - [Create SSH Service Connection in Azure DevOps](#-create-ssh-service-connection-in-azure-devops)
-- [Run the Shell Scripts](#-run-the-shell-scripts)
+- [Run the Shell Script](#-run-the-shell-script)
 - [Ansible Installation on Ubuntu Linux [Without Bash Script]](#-snsible-installation-on-ubuntu-linux)
 - [Configure Ansible to run as a specific user](#-configure-ansible-to-run-as-a-specific-user)
 - [Review Ansible Playbooks for Azure](#-review-ansible-playbooks-for-azure)
