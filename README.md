@@ -30,7 +30,7 @@ Contributor:                                                [<img src="https://g
 - [Configuring the Service Principal in Terraform](#-configuring-the-service-principal-in-terraform)
 - [Create SSH Service Connection in Azure DevOps](#-create-ssh-service-connection-in-azure-devops)
 - [Run the Shell Script](#-run-the-shell-script)
-- [Ansible Installation on Ubuntu Linux [Without Bash Script]](#-snsible-installation-on-ubuntu-linux)
+- [Ansible Installation on Ubuntu Linux [Without Bash Script]](#-ansible-installation-on-ubuntu-linux)
 - [Configure Ansible to run as a specific user](#-configure-ansible-to-run-as-a-specific-user)
 - [Review Ansible Playbooks for Azure](#-review-ansible-playbooks-for-azure)
 - [Ansible Tower Installation on Ubuntu Linux](#-ansible-tower-installation-on-ubuntu-linux)
